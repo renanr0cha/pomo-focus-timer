@@ -9,13 +9,21 @@
   font-family: 'Roboto', sans-serif;
   --bg-dark: #121214;
   --fc-white: #FFFFFF;
-  --bg-primary-clear: rgba(66, 211, 255, 0.13);
+  --bg-primary-light: rgba(66, 211, 255, 0.13);
   --primary: rgba(66, 211, 255, 1);
 }
 
 body {
   background: var(--bg-dark);
+  display: grid;
+  min-height: 100vh;
 }
+
+main {
+  justify-self: center;
+  align-self: end;
+}
+
 
 button {
   background: transparent;
@@ -28,15 +36,28 @@ button {
   justify-content: center;
   align-items: center;
   color: var(--fc-white);
-  font-size: 8.8rem;
+  font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
+  margin-bottom: 1.6rem;
 }
 
 #controls {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-primary-light);
+  border-radius: 9999px;
+  gap: 3.2rem;
+  padding: 2.2rem 3.4rem;
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 2rem + 10vw, 10.8rem);
 }
 
-#footer {
+.hide {
+  display: none;
+}
 
+footer {
+  justify-self: end;
+  align-self: end;
+  padding: 0 4rem 3.2rem 0;
 }

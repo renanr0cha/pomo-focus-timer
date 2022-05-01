@@ -7,16 +7,14 @@ const buttonSoundContinue = document.querySelector(".sound-continue")
 const buttonSoundStop = document.querySelector(".sound-stop")
 const minutesDisplay = document.querySelector(".minutes")
 const secondsDisplay = document.querySelector(".seconds")
-let minutesChoice
 
 export {
   buttonPLay,
   buttonPause,
-  minutesChoice,
   buttonStop,
   buttonSetTimer,
   buttonSoundContinue,
   buttonSoundStop,
   minutesDisplay,
-  secondsDisplay
+  secondsDisplay,
 }

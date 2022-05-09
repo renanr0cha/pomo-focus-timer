@@ -35,7 +35,7 @@ export default function Timer({
       return
     }
     if (seconds == 0) {
-      seconds = 3
+      seconds = 60
       updateDisplay(String(minutes - 1), seconds)
     }
   

@@ -1,31 +1,45 @@
-import { buttonPLay, buttonPause, buttonStop, buttonSetTimer, buttonSoundContinue, buttonSoundStop } from './elements.js'
-import { play, stop, pause } from './controls.js'
-import { chooseTime } from './timer.js'
+import { buttonPLay,
+  buttonPause,
+  buttonStop,
+  buttonSetTimer,
+  buttonSoundStart,
+  buttonSoundStop,
+  minutesDisplay,
+  minutesChoice } from './elements.js'
+import Controls from './controls.js'
+
+const controls = Controls({
+  buttonPLay,
+  buttonPause,
+  buttonSetTimer,
+  buttonStop,
+  minutesDisplay,
+  minutesChoice,
+  buttonSoundStart,
+  buttonSoundStop
+})
 
 buttonPLay.addEventListener('click', function() {
-  play()
+  controls.play()
 })
 
 buttonPause.addEventListener('click', function() {
-  pause()
+  controls.pause()
 })
 
 buttonStop.addEventListener('click', function() {
-  stop()
+  controls.stop()
 })
 
 buttonSetTimer.addEventListener('click', function() {
-  chooseTime()
+  controls.chooseTime()
 })
 
 buttonSoundStop.addEventListener('click', function() {
-  buttonSoundContinue.classList.remove("hide")
-  buttonSoundStop.classList.add("hide")
+  controls.soundStart()
   
 })
 
-buttonSoundContinue.addEventListener('click', function() {
-  buttonSoundContinue.classList.add("hide")
-  buttonSoundStop.classList.remove("hide")
-  
+buttonSoundStart.addEventListener('click', function() {
+  controls.soundStop()  
 })

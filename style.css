@@ -11,17 +11,25 @@
   --fc-white: #FFFFFF;
   --bg-primary-light: rgba(66, 211, 255, 0.13);
   --primary: rgba(66, 211, 255, 1);
+  --bg-button: hsl(240, 9%, 89%)
 }
 
 body {
-  background: var(--bg-dark);
-  display: grid;
+  background: var(--fc-white);
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
-  justify-self: center;
-  align-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'A B';
+  align-self: center;
+  justify-items: center;
+  gap: 19.2rem;
 }
 
 
@@ -31,25 +39,45 @@ button {
   cursor: pointer;
 }
 
+.timer-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
 #timer {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--fc-white);
-  font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
-  margin-bottom: 1.6rem;
+  color: var(--bg-dark);
+  font-size: 12.6rem;
+  margin-bottom: 4.8rem;
+  border: 1px solid red;
 }
 
 #controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-primary-light);
-  border-radius: 9999px;
+  border: 1px solid red;
   gap: 3.2rem;
-  padding: 2.2rem 3.4rem;
-  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  width: 33rem;
   height: clamp(8rem, 2rem + 10vw, 10.8rem);
+}
+
+.bg-music-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.bg-music-button {
+  background-color: var(--bg-button);
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
 }
 
 .hide {

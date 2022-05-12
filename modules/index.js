@@ -1,7 +1,7 @@
 import { buttonPLay,
   buttonPause,
   buttonStop,
-  buttonSetTimer,
+  buttonAddTime,
   buttonSoundStart,
   buttonSoundStop,
   minutesDisplay,
@@ -11,7 +11,7 @@ import Controls from './controls.js'
 const controls = Controls({
   buttonPLay,
   buttonPause,
-  buttonSetTimer,
+  buttonAddTime,
   buttonStop,
   minutesDisplay,
   minutesChoice,
@@ -31,7 +31,7 @@ buttonStop.addEventListener('click', function() {
   controls.stop()
 })
 
-buttonSetTimer.addEventListener('click', function() {
+buttonAddTime.addEventListener('click', function() {
   controls.chooseTime()
 })
 

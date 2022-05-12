@@ -51,7 +51,6 @@ export default function Controls({
     buttonPLay.classList.add("hide")
     buttonPause.classList.remove("hide")
     buttonStop.classList.remove("hide")
-    buttonSetTimer.classList.add("hide")
     timer.count()
   }
   
@@ -59,8 +58,6 @@ export default function Controls({
     Sounds().pressButton()
     buttonPLay.classList.remove("hide")
     buttonPause.classList.add("hide")
-    buttonSetTimer.classList.remove("hide")
-    buttonStop.classList.add("hide")
     timer.pauseCountdown()
     timer.resetDisplay()
 

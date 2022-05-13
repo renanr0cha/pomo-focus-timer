@@ -11,7 +11,12 @@
   --fc-white: #FFFFFF;
   --bg-primary-light: rgba(66, 211, 255, 0.13);
   --primary: rgba(66, 211, 255, 1);
-  --bg-button: hsl(240, 9%, 89%)
+  --bg-button: hsl(240, 9%, 89%);
+  --bg-button-hover: hsl(240, 9%, 76%);
+  --bg-button-rain: hsl(194, 97%, 31%);
+  --bg-button-forest: hsl(147, 97%, 31%);
+  --bg-button-city: hsl(39, 97%, 31%);
+  --bg-button-fire: hsl(347, 97%, 31%);
 }
 
 body {
@@ -54,14 +59,12 @@ button {
   color: var(--bg-dark);
   font-size: 12.6rem;
   margin-bottom: 4.8rem;
-  border: 1px solid red;
 }
 
 #controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   gap: 3.2rem;
   width: 33rem;
   height: clamp(8rem, 2rem + 10vw, 10.8rem);
@@ -78,6 +81,41 @@ button {
   width: 13.8rem;
   height: 15.2rem;
   border-radius: 2.4rem;
+}
+
+.bg-music-button:hover {
+  filter: brightness(80%);
+}
+
+.bg-music-button:hover svg path,
+.bg-music-button svg path.checked {
+  fill: var(--fc-white);
+}
+
+
+
+.bg-music-button:active {
+  filter: brightness(100%);
+
+}
+
+
+
+
+#forest:hover {
+  background: var(--bg-button-forest);
+}
+
+#rain:hover {
+  background: var(--bg-button-rain);
+}
+
+#city:hover {
+  background: var(--bg-button-city);
+}
+
+#fire:hover {
+  background: var(--bg-button-fire);
 }
 
 .hide {

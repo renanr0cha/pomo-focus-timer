@@ -5,7 +5,8 @@ import { buttonPLay,
   buttonSoundStart,
   buttonSoundStop,
   minutesDisplay,
-  minutesChoice } from './elements.js'
+  minutesChoice,
+  buttonBgSound } from './elements.js'
 import Controls from './controls.js'
 
 const controls = Controls({
@@ -42,4 +43,16 @@ buttonSoundStop.addEventListener('click', function() {
 
 buttonSoundStart.addEventListener('click', function() {
   controls.soundStop()  
+})
+
+console.log(buttonBgSound)
+
+buttonBgSound.addEventListener('click', function() {
+  console.log("iei")
+  let buttonSound = buttonBgSound.id
+  console.log(buttonSound)
+
+  document.querySelector(`#${buttonSound}`).style.backgroundColor = window.getComputedStyle( document.querySelector(`#${buttonSound}`) ,null).getPropertyValue('background-color');
+  document.querySelector(`#${buttonSound}-svg`).style.fill = window.getComputedStyle( document.querySelector(`#${buttonSound}-svg`) ,null).getPropertyValue('fill')
+  
 })

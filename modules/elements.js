@@ -8,7 +8,7 @@ const minutesDisplay = document.querySelector(".minutes")
 const secondsDisplay = document.querySelector(".seconds")
 let minutesChoice = Number(minutesDisplay.textContent)
 
-const buttonBgSound = document.getElementsByClassName("bg-music-button")
+const buttonBgSound = document.querySelectorAll(".bg-music-button")
 
 export {
   buttonPLay,

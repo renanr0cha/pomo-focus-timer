@@ -45,14 +45,15 @@ buttonSoundStart.addEventListener('click', function() {
   controls.soundStop()  
 })
 
+let checked = []
+
 console.log(buttonBgSound)
 
-buttonBgSound.addEventListener('click', function() {
-  console.log("iei")
-  let buttonSound = buttonBgSound.id
-  console.log(buttonSound)
-
-  document.querySelector(`#${buttonSound}`).style.backgroundColor = window.getComputedStyle( document.querySelector(`#${buttonSound}`) ,null).getPropertyValue('background-color');
-  document.querySelector(`#${buttonSound}-svg`).style.fill = window.getComputedStyle( document.querySelector(`#${buttonSound}-svg`) ,null).getPropertyValue('fill')
-  
+buttonBgSound.forEach(element => {
+  element.addEventListener('click', function() {
+    let buttonSound = element.id  
+    document.querySelector(`#${buttonSound}`).style.backgroundColor = window.getComputedStyle( document.querySelector(`#${buttonSound}`) ,null).getPropertyValue('background-color');
+    document.querySelector(`#${buttonSound}-svg`).style.fill = window.getComputedStyle( document.querySelector(`#${buttonSound}-svg`) ,null).getPropertyValue('fill')
+    console.log(Array.prototype.indexOf.call(element))
+  }) 
 })

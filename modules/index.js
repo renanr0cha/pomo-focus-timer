@@ -45,15 +45,56 @@ buttonSoundStart.addEventListener('click', function() {
   controls.soundStop()  
 })
 
-let checked = []
+
 
 console.log(buttonBgSound)
-
+let isChecked = [
+  {
+    id: 0,
+    checked: false
+  },
+  {
+    id: 1,
+    checked: false
+  },
+  {
+    id: 2,
+    checked: false
+  },
+  {
+    id: 3,
+    checked: false
+  },
+]
 buttonBgSound.forEach(element => {
   element.addEventListener('click', function() {
-    let buttonSound = element.id  
-    document.querySelector(`#${buttonSound}`).style.backgroundColor = window.getComputedStyle( document.querySelector(`#${buttonSound}`) ,null).getPropertyValue('background-color');
-    document.querySelector(`#${buttonSound}-svg`).style.fill = window.getComputedStyle( document.querySelector(`#${buttonSound}-svg`) ,null).getPropertyValue('fill')
-    console.log(Array.prototype.indexOf.call(element))
+    console.log(element.value)
+    console.log(element)
+    console.log(Array.prototype.indexOf.call(buttonBgSound, element))
+    if ( element.value == "unchecked" || element.value == "" ) {
+      addButtonColor(element.id)
+      element.value = "checked"
+      
+    } else {
+      removeButtonColor(element.id)
+      element.value = "unchecked"
+    }
   }) 
 })
+
+function addButtonColor(elementClicked) {
+  document.querySelector(`#${elementClicked}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue(`--bg-button-${elementClicked}`);
+      document.querySelector(`#${elementClicked}-svg`).style.fill = "#FFFFFF"
+}
+
+function removeButtonColor(elementClicked) {
+  document.querySelector(`#${elementClicked}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue('--bg-button')
+  document.querySelector(`#${elementClicked}-svg`).style.fill = "#323238"
+}
+
+// function checkIfClicked() {
+//   switch (element.id) {
+//     case "forest":
+//       if
+//   }
+// }

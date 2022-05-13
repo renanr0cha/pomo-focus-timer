@@ -87,8 +87,7 @@ button {
   filter: brightness(80%);
 }
 
-.bg-music-button:hover svg path,
-.bg-music-button svg path.checked {
+.bg-music-button:hover svg path {
   fill: var(--fc-white);
 }
 

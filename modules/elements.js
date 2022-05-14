@@ -8,10 +8,6 @@ const buttonSoundStop = document.querySelector(".sound-stop")
 const minutesDisplay = document.querySelector(".minutes")
 const secondsDisplay = document.querySelector(".seconds")
 let minutesChoice = Number(minutesDisplay.textContent)
-const buttonForest = document.querySelector("#forest")
-const buttonRain = document.querySelector("#rain")
-const buttonCity = document.querySelector("#city")
-const buttonFire = document.querySelector("#fire")
 
 const buttonBgSound = document.querySelectorAll(".bg-music-button")
 
@@ -26,9 +22,5 @@ export {
   minutesDisplay,
   secondsDisplay,
   minutesChoice,
-  buttonBgSound,
-  buttonCity,
-  buttonFire,
-  buttonForest,
-  buttonRain
+  buttonBgSound
 }

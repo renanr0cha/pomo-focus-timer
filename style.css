@@ -34,7 +34,9 @@ main {
   'A B';
   align-self: center;
   justify-items: center;
-  gap: 19.2rem;
+  width: clamp(82rem, 80vw, 90vw);
+  gap: 4rem;
+  padding: 4rem;
 }
 
 

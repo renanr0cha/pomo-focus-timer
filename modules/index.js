@@ -7,11 +7,7 @@ import { buttonPLay,
   buttonSoundStop,
   minutesDisplay,
   minutesChoice,
-  buttonBgSound,
-  buttonCity,
-  buttonFire,
-  buttonForest,
-  buttonRain
+  buttonBgSound
 } from './elements.js'
 
 import Controls from './controls.js'
@@ -50,15 +46,6 @@ buttonAddTime.addEventListener('click', function() {
 
 buttonRemoveTime.addEventListener('click', function() {
   controls.removeTime()
-})
-
-buttonSoundStop.addEventListener('click', function() {
-  controls.soundStart()
-  
-})
-
-buttonSoundStart.addEventListener('click', function() {
-  controls.soundStop()  
 })
 
 buttonBgSound.forEach(element => {

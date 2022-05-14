@@ -14,30 +14,22 @@ const timer = Timer({
   minutesChoice
 })
 
-const sound = Sounds()
-
 export default function Controls({
   buttonPLay,
   buttonPause,
   buttonStop,
-  minutesDisplay,
-  buttonSoundStart,
-  buttonSoundStop
+  minutesDisplay
 }) {
 
   function addTime() {
     Sounds().pressButton()
     minutesDisplay.textContent = String(Number(minutesDisplay.textContent) + 5).padStart(2, "0")
-
   }
 
   function removeTime() {
     Sounds().pressButton()
     minutesDisplay.textContent = String(Number(minutesDisplay.textContent) - 5).padStart(2, "0")
-
   }
-
-
 
   function play() {
     Sounds().pressButton()
@@ -53,9 +45,7 @@ export default function Controls({
     buttonPause.classList.add("hide")
     timer.pauseCountdown()
     timer.resetDisplay()
-
   }
-  
   
   
   function pause() {
@@ -65,25 +55,13 @@ export default function Controls({
     timer.pauseCountdown()
   }
 
-  function soundStop() {
-    Sounds().pressButton()
-    sound.bgOff()
-  }
-
-  function soundStart() {
-    Sounds().pressButton()
-    sound.bgOn()
-
-  }
   
   return {
     addTime,
     removeTime,
     play,
     stop,
-    pause,
-    soundStart,
-    soundStop
+    pause
   }
 
 }

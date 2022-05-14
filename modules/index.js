@@ -2,17 +2,29 @@ import { buttonPLay,
   buttonPause,
   buttonStop,
   buttonAddTime,
+  buttonRemoveTime,
   buttonSoundStart,
   buttonSoundStop,
   minutesDisplay,
   minutesChoice,
-  buttonBgSound } from './elements.js'
+  buttonBgSound,
+  buttonCity,
+  buttonFire,
+  buttonForest,
+  buttonRain
+} from './elements.js'
+
 import Controls from './controls.js'
+
+import Sounds from './sounds.js'
+
+const sound = Sounds()
 
 const controls = Controls({
   buttonPLay,
   buttonPause,
   buttonAddTime,
+  buttonRemoveTime,
   buttonStop,
   minutesDisplay,
   minutesChoice,
@@ -33,7 +45,11 @@ buttonStop.addEventListener('click', function() {
 })
 
 buttonAddTime.addEventListener('click', function() {
-  controls.chooseTime()
+  controls.addTime()
+})
+
+buttonRemoveTime.addEventListener('click', function() {
+  controls.removeTime()
 })
 
 buttonSoundStop.addEventListener('click', function() {
@@ -45,33 +61,9 @@ buttonSoundStart.addEventListener('click', function() {
   controls.soundStop()  
 })
 
-
-
-console.log(buttonBgSound)
-let isChecked = [
-  {
-    id: 0,
-    checked: false
-  },
-  {
-    id: 1,
-    checked: false
-  },
-  {
-    id: 2,
-    checked: false
-  },
-  {
-    id: 3,
-    checked: false
-  },
-]
 buttonBgSound.forEach(element => {
   element.addEventListener('click', function() {
-    console.log(element.value)
-    console.log(element)
-    console.log(Array.prototype.indexOf.call(buttonBgSound, element))
-    if ( element.value == "unchecked" || element.value == "" ) {
+    if ( element.value == "unchecked" || element.value == ""  ) {
       addButtonColor(element.id)
       element.value = "checked"
       
@@ -79,22 +71,55 @@ buttonBgSound.forEach(element => {
       removeButtonColor(element.id)
       element.value = "unchecked"
     }
-  }) 
+  })
+
+  element.addEventListener('click', function() {
+    playBg(element)
+  })
 })
 
-function addButtonColor(elementClicked) {
-  document.querySelector(`#${elementClicked}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue(`--bg-button-${elementClicked}`);
-      document.querySelector(`#${elementClicked}-svg`).style.fill = "#FFFFFF"
+function addButtonColor(elementClickedId) {
+  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue(`--bg-button-${elementClickedId}`)
+  document.querySelector(`#${elementClickedId}-svg`).style.fill = "#FFFFFF"
 }
 
-function removeButtonColor(elementClicked) {
-  document.querySelector(`#${elementClicked}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue('--bg-button')
-  document.querySelector(`#${elementClicked}-svg`).style.fill = "#323238"
+function removeButtonColor(elementClickedId) {
+  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue('--bg-button')
+  document.querySelector(`#${elementClickedId}-svg`).style.fill = "#323238"
 }
 
-// function checkIfClicked() {
-//   switch (element.id) {
-//     case "forest":
-//       if
-//   }
-// }
+function playBg(bgButton) {
+  switch(bgButton.id) {
+    case 'city':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.cityAudio.pause()
+      } else {
+        sound.cityAudio.play()
+
+      }
+      break
+    case 'fire':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.fireAudio.pause()
+      } else {
+        sound.fireAudio.play()
+      }
+      break
+    case 'forest':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.forestAudio.pause()
+      } else {
+        sound.forestAudio.play()
+      }
+      break
+    case 'rain':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.rainAudio.pause()
+      } else {
+        sound.rainAudio.play()
+      }
+      break
+    default:
+      break
+  }
+}

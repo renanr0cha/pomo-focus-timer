@@ -19,32 +19,25 @@ const sound = Sounds()
 export default function Controls({
   buttonPLay,
   buttonPause,
-  buttonSetTimer,
   buttonStop,
   minutesDisplay,
-  minutesChoice,
   buttonSoundStart,
   buttonSoundStop
 }) {
 
-  function chooseTime() {
+  function addTime() {
     Sounds().pressButton()
-    minutesChoice = Number(prompt("Timer time?"))
-    changeMinutes(minutesChoice)
+    minutesDisplay.textContent = String(Number(minutesDisplay.textContent) + 5).padStart(2, "0")
 
   }
-  
-  function changeMinutes(minutes) {
-    if (minutes == 0 || isNaN(minutes) == true ) {
-      alert(`You didn't entered a valid number! Try again`)
-      chooseTime()
-    } 
-    
-    else {
-      minutesDisplay.textContent = String(minutes).padStart(2, "0")
-      timer.updateMinutes(minutes)
-    }
+
+  function removeTime() {
+    Sounds().pressButton()
+    minutesDisplay.textContent = String(Number(minutesDisplay.textContent) - 5).padStart(2, "0")
+
   }
+
+
 
   function play() {
     Sounds().pressButton()
@@ -74,22 +67,18 @@ export default function Controls({
 
   function soundStop() {
     Sounds().pressButton()
-    buttonSoundStart.classList.add("hide")
-    buttonSoundStop.classList.remove("hide")
     sound.bgOff()
   }
 
   function soundStart() {
     Sounds().pressButton()
-    buttonSoundStart.classList.remove("hide")
-    buttonSoundStop.classList.add("hide")
     sound.bgOn()
 
   }
   
   return {
-    chooseTime,
-    changeMinutes,
+    addTime,
+    removeTime,
     play,
     stop,
     pause,

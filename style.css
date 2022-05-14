@@ -67,7 +67,6 @@ button {
   align-items: center;
   gap: 3.2rem;
   width: 33rem;
-  height: clamp(8rem, 2rem + 10vw, 10.8rem);
 }
 
 .bg-music-controls {
@@ -81,6 +80,7 @@ button {
   width: 13.8rem;
   height: 15.2rem;
   border-radius: 2.4rem;
+  box-shadow: 0 6px rgb(202, 202, 202);
 }
 
 .bg-music-button:hover {
@@ -95,7 +95,8 @@ button {
 
 .bg-music-button:active {
   filter: brightness(100%);
-
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 
 

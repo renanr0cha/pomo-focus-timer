@@ -35,7 +35,7 @@ export default function Timer({
       return
     }
     if (seconds == 0) {
-      seconds = 60
+      seconds = 3
       updateDisplay(String(minutes - 1), seconds)
     }
   
@@ -72,5 +72,3 @@ export default function Timer({
     updateMinutes
   }
 }
-
-// export { chooseTime, changeMinutes, countdown, count, pauseCountdown, updateDisplay, resetDisplay }

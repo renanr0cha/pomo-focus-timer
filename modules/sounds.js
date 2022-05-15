@@ -1,10 +1,10 @@
 export default function Sounds() {
   const buttonPress = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
   const pomoTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
-  const forestAudio = new Audio("https://github.com/renanrochadev/pomo-focus-timer/blob/pomo-focus-timer-2/sounds/forest.wav")
-  const rainAudio = new Audio("https://github.com/renanrochadev/pomo-focus-timer/blob/pomo-focus-timer-2/sounds/rain.wav")
-  const cityAudio = new Audio("https://github.com/renanrochadev/pomo-focus-timer/blob/pomo-focus-timer-2/sounds/city.wav")
-  const fireAudio = new Audio("https://github.com/renanrochadev/pomo-focus-timer/blob/pomo-focus-timer-2/sounds/fire.wav")
+  const forestAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Floresta.wav?raw=true")
+  const rainAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Chuva.wav?raw=true")
+  const cityAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Cafeteria.wav?raw=true")
+  const fireAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Lareira.wav?raw=true")
 
   forestAudio.loop,
   rainAudio.loop,

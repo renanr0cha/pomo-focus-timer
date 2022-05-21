@@ -67,14 +67,14 @@ buttonBgSound.forEach(element => {
 })
 
 function addButtonColor(elementClickedId) {
-  document.body.style.setProperty(`--bg-button-${elementClickedId}`, getComputedStyle(document.body).getPropertyValue(`--clr-${elementClickedId}`))
-  console.log(getComputedStyle(document.body).getPropertyValue(`--bg-button-${elementClickedId}`))
+  
+  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.body).getPropertyValue(`--clr-${elementClickedId}`)
   document.querySelector(`#${elementClickedId}-svg`).style.fill = "#FFFFFF"
   document.querySelector(`#${elementClickedId}-volume`).classList.remove("hide")
 }
 
 function removeButtonColor(elementClickedId) {
-  document.body.style.setProperty(`--bg-button-${elementClickedId}`, `var(--bg-button)`)
+  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.body).getPropertyValue(`--bg-button-${elementClickedId}`)
   document.querySelector(`#${elementClickedId}-svg`).style.fill = getComputedStyle(document.body).getPropertyValue('--button-dark')
   document.querySelector(`#${elementClickedId}-volume`).classList.add("hide")
 }
@@ -122,3 +122,4 @@ document.querySelector(".theme-chooser").addEventListener('click', () => {
     document.body.classList.add("dark")
   }
 })
+

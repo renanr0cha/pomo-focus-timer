@@ -7,16 +7,17 @@
 :root {
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
-  --bg-dark: #121214;
-  --fc-white: #FFFFFF;
-  --bg-primary-light: rgba(66, 211, 255, 0.13);
-  --primary: rgba(66, 211, 255, 1);
-  --bg-button: hsl(240, 9%, 89%);
-  --bg-button-hover: hsl(240, 9%, 76%);
-  --bg-button-rain: hsl(194, 97%, 31%);
-  --bg-button-forest: hsl(147, 97%, 31%);
-  --bg-button-city: hsl(39, 97%, 31%);
-  --bg-button-fire: hsl(347, 97%, 31%);
+
+}
+
+
+
+.dark {
+  --button-dark: hsl(240, 9%, 89%);
+  --slider-color: hsl(240, 9%, 89%);
+  --fc-white: #121214;
+  --bg-button: #29292E;
+  --button-shadow: rgb(50, 50, 50);
 }
 
 body {
@@ -25,6 +26,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  --bg-dark: #121214;
+  --button-dark: #323238;
+  --fc-white: #FFFFFF;
+  --bg-primary-light: rgba(66, 211, 255, 0.13);
+  --primary: rgba(66, 211, 255, 1);
+  --bg-button: hsl(240, 9%, 89%);
+  --clr-forest: hsl(147, 97%, 31%);
+  --clr-rain: hsl(194, 97%, 31%);
+  --clr-city: hsl(39, 97%, 31%);
+  --clr-fire: hsl(347, 97%, 31%);
+  --bg-button-rain: hsl(240, 9%, 89%);
+  --bg-button-forest: hsl(240, 9%, 89%);
+  --bg-button-city: hsl(240, 9%, 89%);
+  --bg-button-fire: hsl(240, 9%, 89%);
+  --button-shadow: rgb(176, 176, 176);
+  --slider-color: hsl(240, 9%, 89%);
+}
+
+header .theme-chooser {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
 }
 
 main {
@@ -58,7 +81,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--bg-dark);
+  color: var(--button-dark);
   font-size: 12.6rem;
   margin-bottom: 4.8rem;
 }
@@ -82,18 +105,78 @@ button {
   width: 13.8rem;
   height: 15.2rem;
   border-radius: 2.4rem;
-  box-shadow: 0 6px rgb(202, 202, 202);
+  box-shadow: 0 6px var(--button-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.bg-music-button:hover {
-  filter: brightness(80%);
+
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  padding-block: 1rem;
+}
+
+.volume::-moz-range-thumb {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;
+}
+
+.volume::-ms-thumb {
+  margin-top: 0;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;
+}
+
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;  
+}
+
+.volume::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.4rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  background: var(--slider-color);
+}
+
+.volume:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.volume::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.volume {
+  max-width: 70%;
 }
 
 .bg-music-button:hover svg path {
-  fill: var(--fc-white);
+  fill: #FFFFFF !important;
 }
-
-
 
 .bg-music-button:active {
   filter: brightness(100%);
@@ -101,23 +184,20 @@ button {
   transform: translateY(4px);
 }
 
-
-
-
-#forest:hover {
-  background: var(--bg-button-forest);
+.bg-music-button#forest:hover {
+  background-color: var(--clr-forest) !important;
 }
 
 #rain:hover {
-  background: var(--bg-button-rain);
+  background-color: var(--clr-rain) !important;
 }
 
 #city:hover {
-  background: var(--bg-button-city);
+  background-color: var(--clr-city) !important;
 }
 
 #fire:hover {
-  background: var(--bg-button-fire);
+  background-color: var(--clr-fire) !important;
 }
 
 .hide {

@@ -7,7 +7,8 @@ import { buttonPLay,
   buttonSoundStop,
   minutesDisplay,
   minutesChoice,
-  buttonBgSound
+  buttonBgSound,
+  volumeSlider
 } from './elements.js'
 
 import Controls from './controls.js'
@@ -66,13 +67,16 @@ buttonBgSound.forEach(element => {
 })
 
 function addButtonColor(elementClickedId) {
-  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue(`--bg-button-${elementClickedId}`)
+  document.body.style.setProperty(`--bg-button-${elementClickedId}`, getComputedStyle(document.body).getPropertyValue(`--clr-${elementClickedId}`))
+  console.log(getComputedStyle(document.body).getPropertyValue(`--bg-button-${elementClickedId}`))
   document.querySelector(`#${elementClickedId}-svg`).style.fill = "#FFFFFF"
+  document.querySelector(`#${elementClickedId}-volume`).classList.remove("hide")
 }
 
 function removeButtonColor(elementClickedId) {
-  document.querySelector(`#${elementClickedId}`).style.backgroundColor = getComputedStyle(document.querySelector(':root')).getPropertyValue('--bg-button')
-  document.querySelector(`#${elementClickedId}-svg`).style.fill = "#323238"
+  document.body.style.setProperty(`--bg-button-${elementClickedId}`, `var(--bg-button)`)
+  document.querySelector(`#${elementClickedId}-svg`).style.fill = getComputedStyle(document.body).getPropertyValue('--button-dark')
+  document.querySelector(`#${elementClickedId}-volume`).classList.add("hide")
 }
 
 function playBg(bgButton) {
@@ -110,3 +114,11 @@ function playBg(bgButton) {
       break
   }
 }
+
+document.querySelector(".theme-chooser").addEventListener('click', () => {
+  if (document.body.classList.contains('dark')) {
+    document.body.classList.remove("dark")
+  } else {
+    document.body.classList.add("dark")
+  }
+})

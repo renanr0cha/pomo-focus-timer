@@ -11,6 +11,8 @@ let minutesChoice = Number(minutesDisplay.textContent)
 
 const buttonBgSound = document.querySelectorAll(".bg-music-button")
 
+const volumeSlider = document.querySelectorAll(".volume")
+
 export {
   buttonPLay,
   buttonPause,
@@ -22,5 +24,6 @@ export {
   minutesDisplay,
   secondsDisplay,
   minutesChoice,
-  buttonBgSound
+  buttonBgSound,
+  volumeSlider
 }

@@ -76,7 +76,6 @@ function playBg(bgButton) {
         sound.cityAudio.pause()
       } else {
         sound.cityAudio.play()
-
       }
       break
     case 'fire':
@@ -104,6 +103,12 @@ function playBg(bgButton) {
       break
   }
 }
+
+document.querySelectorAll(".volume").forEach(element => {
+  element.addEventListener('change', (event) => {
+    element.volume = document.querySelector(`#${element.id}`).value
+  })
+})
 
 document.querySelector(".theme-chooser").onclick = () => {
     document.body.classList.toggle("dark")

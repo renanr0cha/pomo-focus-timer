@@ -65,9 +65,9 @@ buttonBgSound.forEach(element => {
 
   element.addEventListener('click', function() {
     playBg(element)
+    sound.pressButton()
   })
 })
-
 
 function playBg(bgButton) {
   switch(bgButton.id) {
@@ -104,11 +104,49 @@ function playBg(bgButton) {
   }
 }
 
-document.querySelectorAll(".volume").forEach(element => {
-  element.addEventListener('change', (event) => {
-    element.volume = document.querySelector(`#${element.id}`).value
+function setVolumeForest() {
+  sound.forestAudio.volume = document.querySelector("#forest-volume").value
+}
+
+function setVolumeRain() {
+  sound.rainAudio.volume = document.querySelector("#rain-volume").value
+}
+
+function setVolumeCity() {
+  sound.cityAudio.volume = document.querySelector("#city-volume").value
+}
+
+function setVolumeFire() {
+  sound.fireAudio.volume = document.querySelector("#fire-volume").value
+}
+
+document.querySelectorAll(".volume").forEach( element => {
+  element.addEventListener('input', () => {
+    switch(element.id) {
+      case 'forest-volume':
+        setVolumeForest()
+        break
+      case 'rain-volume':
+        setVolumeRain()
+        break
+      case 'city-volume':
+        setVolumeCity()
+        break
+      case 'fire-volume':
+        setVolumeFire()
+        break
+      default:
+        break
+    }
   })
 })
+
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+if (darkThemeMq.matches) {
+  document.body.classList.toggle("dark")
+} else {
+  
+}
 
 document.querySelector(".theme-chooser").onclick = () => {
     document.body.classList.toggle("dark")

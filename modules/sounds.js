@@ -6,9 +6,9 @@ export default function Sounds() {
   const cityAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Cafeteria.wav?raw=true")
   const fireAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Lareira.wav?raw=true")
 
-  forestAudio.loop,
-  rainAudio.loop,
-  cityAudio.loop,
+  forestAudio.loop = true
+  rainAudio.loop = true
+  cityAudio.loop = true
   fireAudio.loop = true
 
   function pressButton() {

@@ -7,21 +7,56 @@
 :root {
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
-  --bg-dark: #121214;
-  --fc-white: #FFFFFF;
-  --bg-primary-light: rgba(66, 211, 255, 0.13);
-  --primary: rgba(66, 211, 255, 1);
+}
+
+.dark {
+  --button-dark: hsl(240, 9%, 89%);
+  --slider-color: hsl(240, 9%, 89%);
+  --fc-white: #121214;
+  --bg-button: #29292E;
+  --button-shadow: rgb(50, 50, 50);
 }
 
 body {
-  background: var(--bg-dark);
-  display: grid;
+  background: var(--fc-white);
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --bg-dark: #121214;
+  --button-dark: #323238;
+  --fc-white: #FFFFFF;
+  --bg-primary-light: rgba(66, 211, 255, 0.13);
+  --primary: rgba(66, 211, 255, 1);
+  --bg-button: hsl(240, 9%, 89%);
+  --clr-forest: hsl(147, 97%, 31%);
+  --clr-rain: hsl(194, 97%, 31%);
+  --clr-city: hsl(39, 97%, 31%);
+  --clr-fire: hsl(347, 97%, 31%);
+  --bg-button-rain: hsl(240, 9%, 89%);
+  --bg-button-forest: hsl(240, 9%, 89%);
+  --bg-button-city: hsl(240, 9%, 89%);
+  --bg-button-fire: hsl(240, 9%, 89%);
+  --button-shadow: rgb(176, 176, 176);
+  --slider-color: hsl(240, 9%, 89%);
+}
+
+header .theme-chooser {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
 }
 
 main {
-  justify-self: center;
-  align-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'A B';
+  align-self: center;
+  justify-items: center;
+  width: clamp(82rem, 80vw, 90vw);
+  gap: 4rem;
+  padding: 4rem;
 }
 
 
@@ -31,25 +66,163 @@ button {
   cursor: pointer;
 }
 
+.timer-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
 #timer {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--fc-white);
-  font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
-  margin-bottom: 1.6rem;
+  color: var(--button-dark);
+  font-size: 12.6rem;
+  margin-bottom: 4.8rem;
 }
 
 #controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-primary-light);
-  border-radius: 9999px;
   gap: 3.2rem;
-  padding: 2.2rem 3.4rem;
-  width: clamp(10rem, 10rem + 30vw, 22.8rem);
-  height: clamp(8rem, 2rem + 10vw, 10.8rem);
+  width: 33rem;
+}
+
+.bg-music-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.bg-music-button {
+  background-color: var(--bg-button);
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  padding-block: 1rem;
+}
+
+.volume::-moz-range-thumb {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;
+}
+
+.volume::-ms-thumb {
+  margin-top: 0;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;
+}
+
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--slider-color);
+  cursor: pointer;  
+}
+
+.volume::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.4rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  background: var(--slider-color);
+}
+
+.volume:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.volume::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.volume {
+  max-width: 70%;
+}
+
+.volume-wrapper {
+  height: 4rem;
+  width: 13.8rem;
+  border-radius: 0 0 2.4rem 2.4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.volume-wrapper {
+  background-color: var(--clr-forest);
+}
+
+.range-active {
+  height: 11.2rem;
+  border-radius: 2.4rem 2.4rem 0 0;
+  align-items: flex-start;
+  padding-top: 2.4rem;
+}
+
+.bg-music-button:hover svg path,
+.bg-music-button[value=checked] svg path {
+  fill: #FFFFFF !important;
+}
+
+#forest[value=checked] {
+  background-color: var(--clr-forest)
+}
+
+#rain[value=checked] {
+  background-color: var(--clr-rain)
+}
+
+#city[value=checked] {
+  background-color: var(--clr-city)
+}
+
+#fire[value=checked] {
+  background-color: var(--clr-fire)
+}
+
+#forest:hover {
+  background-color: var(--clr-forest);
+}
+
+#rain:hover {
+  background-color: var(--clr-rain);
+}
+
+#city:hover {
+  background-color: var(--clr-city);
+}
+
+#fire:hover {
+  background-color: var(--clr-fire);
 }
 
 .hide {

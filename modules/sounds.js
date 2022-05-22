@@ -1,15 +1,9 @@
 export default function Sounds() {
   const buttonPress = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
   const pomoTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
-  const forestAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Floresta.wav?raw=true")
-  const rainAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Chuva.wav?raw=true")
-  const cityAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Cafeteria.wav?raw=true")
-  const fireAudio = new Audio("https://github.com/Paru369/focus-timer/blob/main/sounds/Lareira.wav?raw=true")
+  const bgAudio = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/bg-audio.mp3?raw=true")
 
-  forestAudio.loop,
-  rainAudio.loop,
-  cityAudio.loop,
-  fireAudio.loop = true
+  bgAudio.loop
 
   function pressButton() {
     buttonPress.play()
@@ -19,12 +13,18 @@ export default function Sounds() {
     pomoTimer.play()
   }
 
+  function bgOn() {
+    bgAudio.play()
+  }
+
+  function bgOff() {
+    console.log(bgAudio.pause())
+  }
+
   return {
     pressButton,
     timerFinished,
-    fireAudio,
-    cityAudio,
-    forestAudio,
-    rainAudio
+    bgOn,
+    bgOff
   }
 }

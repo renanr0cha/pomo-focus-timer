@@ -14,21 +14,36 @@ const timer = Timer({
   minutesChoice
 })
 
+const sound = Sounds()
+
 export default function Controls({
   buttonPLay,
   buttonPause,
+  buttonSetTimer,
   buttonStop,
-  minutesDisplay
+  minutesDisplay,
+  minutesChoice,
+  buttonSoundStart,
+  buttonSoundStop
 }) {
 
-  function addTime() {
+  function chooseTime() {
     Sounds().pressButton()
-    minutesDisplay.textContent = String(Number(minutesDisplay.textContent) + 5).padStart(2, "0")
-  }
+    minutesChoice = Number(prompt("Timer time?"))
+    changeMinutes(minutesChoice)
 
-  function removeTime() {
-    Sounds().pressButton()
-    minutesDisplay.textContent = String(Number(minutesDisplay.textContent) - 5).padStart(2, "0")
+  }
+  
+  function changeMinutes(minutes) {
+    if (minutes == 0 || isNaN(minutes) == true ) {
+      alert(`You didn't entered a valid number! Try again`)
+      chooseTime()
+    } 
+    
+    else {
+      minutesDisplay.textContent = String(minutes).padStart(2, "0")
+      timer.updateMinutes(minutes)
+    }
   }
 
   function play() {
@@ -36,6 +51,7 @@ export default function Controls({
     buttonPLay.classList.add("hide")
     buttonPause.classList.remove("hide")
     buttonStop.classList.remove("hide")
+    buttonSetTimer.classList.add("hide")
     timer.count()
   }
   
@@ -43,9 +59,13 @@ export default function Controls({
     Sounds().pressButton()
     buttonPLay.classList.remove("hide")
     buttonPause.classList.add("hide")
+    buttonSetTimer.classList.remove("hide")
+    buttonStop.classList.add("hide")
     timer.pauseCountdown()
     timer.resetDisplay()
+
   }
+  
   
   
   function pause() {
@@ -55,13 +75,29 @@ export default function Controls({
     timer.pauseCountdown()
   }
 
+  function soundStop() {
+    Sounds().pressButton()
+    buttonSoundStart.classList.add("hide")
+    buttonSoundStop.classList.remove("hide")
+    sound.bgOff()
+  }
+
+  function soundStart() {
+    Sounds().pressButton()
+    buttonSoundStart.classList.remove("hide")
+    buttonSoundStop.classList.add("hide")
+    sound.bgOn()
+
+  }
   
   return {
-    addTime,
-    removeTime,
+    chooseTime,
+    changeMinutes,
     play,
     stop,
-    pause
+    pause,
+    soundStart,
+    soundStop
   }
 
 }

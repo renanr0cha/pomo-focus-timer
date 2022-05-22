@@ -1,7 +1,7 @@
 import { buttonPLay,
   buttonPause,
   buttonStop,
-  buttonSetTimer,
+  buttonAddTime,
   minutesDisplay,
   minutesChoice } from './elements.js'
 
@@ -12,7 +12,7 @@ import { buttonPLay,
   const controls = Controls({
     buttonPLay,
     buttonPause,
-    buttonSetTimer,
+    buttonAddTime,
     buttonStop,
     minutesDisplay,
     minutesChoice
@@ -72,5 +72,3 @@ export default function Timer({
     updateMinutes
   }
 }
-
-// export { chooseTime, changeMinutes, countdown, count, pauseCountdown, updateDisplay, resetDisplay }

@@ -1,17 +1,27 @@
 import { buttonPLay,
   buttonPause,
   buttonStop,
-  buttonSetTimer,
+  buttonAddTime,
+  buttonRemoveTime,
   buttonSoundStart,
   buttonSoundStop,
   minutesDisplay,
-  minutesChoice } from './elements.js'
+  minutesChoice,
+  buttonBgSound,
+  volumeSlider
+} from './elements.js'
+
 import Controls from './controls.js'
+
+import Sounds from './sounds.js'
+
+const sound = Sounds()
 
 const controls = Controls({
   buttonPLay,
   buttonPause,
-  buttonSetTimer,
+  buttonAddTime,
+  buttonRemoveTime,
   buttonStop,
   minutesDisplay,
   minutesChoice,
@@ -31,15 +41,70 @@ buttonStop.addEventListener('click', function() {
   controls.stop()
 })
 
-buttonSetTimer.addEventListener('click', function() {
-  controls.chooseTime()
+buttonAddTime.addEventListener('click', function() {
+  controls.addTime()
 })
 
-buttonSoundStop.addEventListener('click', function() {
-  controls.soundStart()
-  
+buttonRemoveTime.addEventListener('click', function() {
+  controls.removeTime()
 })
 
-buttonSoundStart.addEventListener('click', function() {
-  controls.soundStop()  
+buttonBgSound.forEach(element => {
+  element.addEventListener('click', function() {
+    if ( element.value == "unchecked" || element.value == ""  ) {
+      element.value = "checked"
+      document.querySelector(`#${element.id}-wrapper`).classList.remove("hide")
+      document.querySelector(`#${element.id}`).classList.add("range-active")
+      
+    } else {
+      element.value = "unchecked"
+      document.querySelector(`#${element.id}-wrapper`).classList.add("hide")
+      document.querySelector(`#${element.id}`).classList.remove("range-active")
+    }
+  })
+
+  element.addEventListener('click', function() {
+    playBg(element)
+  })
 })
+
+
+function playBg(bgButton) {
+  switch(bgButton.id) {
+    case 'city':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.cityAudio.pause()
+      } else {
+        sound.cityAudio.play()
+
+      }
+      break
+    case 'fire':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.fireAudio.pause()
+      } else {
+        sound.fireAudio.play()
+      }
+      break
+    case 'forest':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.forestAudio.pause()
+      } else {
+        sound.forestAudio.play()
+      }
+      break
+    case 'rain':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        sound.rainAudio.pause()
+      } else {
+        sound.rainAudio.play()
+      }
+      break
+    default:
+      break
+  }
+}
+
+document.querySelector(".theme-chooser").onclick = () => {
+    document.body.classList.toggle("dark")
+}

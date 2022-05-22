@@ -45,6 +45,16 @@ header .theme-chooser {
   position: absolute;
   right: 2rem;
   top: 2rem;
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+body.dark header .theme-chooser .light {
+  display: none;
+}
+
+body header.dark .theme-chooser .dark {
+  display: none;
 }
 
 main {
@@ -177,7 +187,7 @@ input[type=range] {
   justify-content: center;
 }
 
-.volume-wrapper {
+#forest-wrapper {
   background-color: var(--clr-forest);
 }
 
@@ -193,19 +203,23 @@ input[type=range] {
   fill: #FFFFFF !important;
 }
 
-#forest[value=checked] {
+#forest[value=checked],
+#forest-wrapper {
   background-color: var(--clr-forest)
 }
 
-#rain[value=checked] {
+#rain[value=checked],
+#rain-wrapper  {
   background-color: var(--clr-rain)
 }
 
-#city[value=checked] {
+#city[value=checked],
+#city-wrapper  {
   background-color: var(--clr-city)
 }
 
-#fire[value=checked] {
+#fire[value=checked],
+#fire-wrapper  {
   background-color: var(--clr-fire)
 }
 

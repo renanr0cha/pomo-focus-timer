@@ -9,34 +9,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-  --bg-dark: #121214;
-  --button-dark: #323238;
-  --fc-white: #FFFFFF;
-  --bg-primary-light: rgba(66, 211, 255, 0.13);
-  --primary: rgba(66, 211, 255, 1);
-  --bg-button: hsl(240, 9%, 89%);
-  --clr-forest: hsl(147, 97%, 31%);
-  --clr-rain: hsl(194, 97%, 31%);
-  --clr-city: hsl(39, 97%, 31%);
-  --clr-fire: hsl(347, 97%, 31%);
-  --bg-button-rain: hsl(240, 9%, 89%);
-  --bg-button-forest: hsl(240, 9%, 89%);
-  --bg-button-city: hsl(240, 9%, 89%);
-  --bg-button-fire: hsl(240, 9%, 89%);
-  --button-shadow: rgb(176, 176, 176);
-  --slider-color: hsl(240, 9%, 89%);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-  
-  }
-}
-
-
 .dark {
   --button-dark: hsl(240, 9%, 89%);
   --slider-color: hsl(240, 9%, 89%);

@@ -15,7 +15,7 @@ const timer = Timer({
 })
 
 export default function Controls({
-  buttonPLay,
+  buttonPlay,
   buttonPause,
   buttonStop,
   minutesDisplay
@@ -33,7 +33,7 @@ export default function Controls({
 
   function play() {
     Sounds().pressButton()
-    buttonPLay.classList.add("hide")
+    buttonPlay.classList.add("hide")
     buttonPause.classList.remove("hide")
     buttonStop.classList.remove("hide")
     timer.count()
@@ -41,7 +41,7 @@ export default function Controls({
   
   function stop() {
     Sounds().pressButton()
-    buttonPLay.classList.remove("hide")
+    buttonPlay.classList.remove("hide")
     buttonPause.classList.add("hide")
     timer.pauseCountdown()
     timer.resetDisplay()
@@ -50,7 +50,7 @@ export default function Controls({
   
   function pause() {
     Sounds().pressButton()
-    buttonPLay.classList.remove("hide")
+    buttonPlay.classList.remove("hide")
     buttonPause.classList.add("hide")
     timer.pauseCountdown()
   }

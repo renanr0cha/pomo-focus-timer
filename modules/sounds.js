@@ -19,12 +19,69 @@ export default function Sounds() {
     pomoTimer.play()
   }
 
+  function setVolumeForest() {
+    forestAudio.volume = document.querySelector("#forest-volume").value
+  }
+  
+  function setVolumeRain() {
+    rainAudio.volume = document.querySelector("#rain-volume").value
+  }
+  
+  function setVolumeCity() {
+    cityAudio.volume = document.querySelector("#city-volume").value
+  }
+  
+  function setVolumeFire() {
+    fireAudio.volume = document.querySelector("#fire-volume").value
+  }
+
+
+function playBg(bgButton) {
+  switch(bgButton.id) {
+    case 'city':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        cityAudio.pause()
+      } else {
+        cityAudio.play()
+      }
+      break
+    case 'fire':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        fireAudio.pause()
+      } else {
+        fireAudio.play()
+      }
+      break
+    case 'forest':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        forestAudio.pause()
+      } else {
+        forestAudio.play()
+      }
+      break
+    case 'rain':
+      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
+        rainAudio.pause()
+      } else {
+        rainAudio.play()
+      }
+      break
+    default:
+      break
+  }
+}
+
   return {
     pressButton,
     timerFinished,
     fireAudio,
     cityAudio,
     forestAudio,
-    rainAudio
+    rainAudio,
+    setVolumeCity,
+    setVolumeFire,
+    setVolumeForest,
+    setVolumeRain,
+    playBg
   }
 }

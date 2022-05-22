@@ -1,4 +1,4 @@
-import { buttonPLay,
+import { buttonPlay,
   buttonPause,
   buttonStop,
   buttonAddTime,
@@ -8,7 +8,8 @@ import { buttonPLay,
   minutesDisplay,
   minutesChoice,
   buttonBgSound,
-  volumeSlider
+  volumeSlider,
+  buttonChangeTheme
 } from './elements.js'
 
 import Controls from './controls.js'
@@ -18,7 +19,7 @@ import Sounds from './sounds.js'
 const sound = Sounds()
 
 const controls = Controls({
-  buttonPLay,
+  buttonPlay,
   buttonPause,
   buttonAddTime,
   buttonRemoveTime,
@@ -29,7 +30,7 @@ const controls = Controls({
   buttonSoundStop
 })
 
-buttonPLay.addEventListener('click', function() {
+buttonPlay.addEventListener('click', function() {
   controls.play()
 })
 
@@ -64,76 +65,25 @@ buttonBgSound.forEach(element => {
   })
 
   element.addEventListener('click', function() {
-    playBg(element)
+    sound.playBg(element)
     sound.pressButton()
   })
 })
 
-function playBg(bgButton) {
-  switch(bgButton.id) {
-    case 'city':
-      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
-        sound.cityAudio.pause()
-      } else {
-        sound.cityAudio.play()
-      }
-      break
-    case 'fire':
-      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
-        sound.fireAudio.pause()
-      } else {
-        sound.fireAudio.play()
-      }
-      break
-    case 'forest':
-      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
-        sound.forestAudio.pause()
-      } else {
-        sound.forestAudio.play()
-      }
-      break
-    case 'rain':
-      if ( bgButton.value == "unchecked" || bgButton.value == "" ) {
-        sound.rainAudio.pause()
-      } else {
-        sound.rainAudio.play()
-      }
-      break
-    default:
-      break
-  }
-}
-
-function setVolumeForest() {
-  sound.forestAudio.volume = document.querySelector("#forest-volume").value
-}
-
-function setVolumeRain() {
-  sound.rainAudio.volume = document.querySelector("#rain-volume").value
-}
-
-function setVolumeCity() {
-  sound.cityAudio.volume = document.querySelector("#city-volume").value
-}
-
-function setVolumeFire() {
-  sound.fireAudio.volume = document.querySelector("#fire-volume").value
-}
-
-document.querySelectorAll(".volume").forEach( element => {
+volumeSlider.forEach( element => {
   element.addEventListener('input', () => {
     switch(element.id) {
       case 'forest-volume':
-        setVolumeForest()
+        sound.setVolumeForest()
         break
       case 'rain-volume':
-        setVolumeRain()
+        sound.setVolumeRain()
         break
       case 'city-volume':
-        setVolumeCity()
+        sound.setVolumeCity()
         break
       case 'fire-volume':
-        setVolumeFire()
+        sound.setVolumeFire()
         break
       default:
         break
@@ -141,13 +91,6 @@ document.querySelectorAll(".volume").forEach( element => {
   })
 })
 
-const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-if (darkThemeMq.matches) {
-  document.body.classList.toggle("dark")
-} else {
-  
-}
-
-document.querySelector(".theme-chooser").onclick = () => {
+buttonChangeTheme.onclick = () => {
     document.body.classList.toggle("dark")
 }

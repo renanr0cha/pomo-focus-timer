@@ -1,4 +1,4 @@
-import { buttonPLay,
+import { buttonPlay,
   buttonPause,
   buttonStop,
   minutesDisplay,
@@ -9,7 +9,7 @@ import { buttonPLay,
   import Sounds from './sounds.js'
 
   const controls = Controls({
-    buttonPLay,
+    buttonPlay,
     buttonPause,
     buttonStop,
     minutesDisplay,

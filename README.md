@@ -62,7 +62,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -76,9 +75,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://renanr0cha.github.io/pomo-focus-timer/)
 
-This is a simple website to help you focus and code better, made without any fancy stuffs.
+This is a simple website to help you focus and code better, made without any fancy stuff.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
